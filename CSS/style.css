@@ -29,6 +29,10 @@
     line-height: 2rem;
 }
 
+.stuff span{
+    padding: 0 10px;
+}
+
 .rosso{
     color: red;
 }
@@ -37,9 +41,10 @@
     color: blue;
 }
 
-.fa-solid{
+.todo_icons{
     font-size: 20px;
     display: none;
+    cursor: pointer;
 }
 
 .fa-check{
@@ -54,4 +59,29 @@
 
 .active{
     display: inline-block;
+}
+
+h2{
+    padding: 1rem 0;
+}
+
+input{
+margin: 1rem;
+}
+
+.inp_cont{
+    /* border: 2px dashed green; */
+    display: flex;
+}
+
+.radio_con{
+    /* border: 2px dashed red; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+button{
+    padding: 1rem;
+    cursor: pointer;
 }

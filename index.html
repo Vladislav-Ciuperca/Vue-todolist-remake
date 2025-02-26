@@ -18,13 +18,37 @@
     <div id="app">
         <div class="todo_list">
             <div class="title">TODO LIST</div>
-            <div class="stuff" v-for="task in todoStuff" :class="{'rosso':task.state, 'blu':!task.state}">
-                <span >{{task.task}}</span>
-                <i class="fa-solid fa-check" :class="{'active':task.state}"></i>
-                <i class="fa-solid fa-xmark" :class="{'active':!task.state}"></i>
-                <i class="fa-solid fa-spinner" :class="{'active':task.state == 'pending'}"></i>
+            <div class="stuff" v-for="(task,index) in todoStuff">
+                <span>{{task.task}}</span>
+
+                <i class=" todo_icons fa-solid fa-check" @click="changeState(index)" :class="{'active':task.state === true}"></i>
+
+                <i class=" todo_icons fa-solid fa-xmark" @click="changeState(index)" :class="{'active':task.state === false}"></i>
+
+                <i class=" todo_icons fa-solid fa-spinner" @click="changeState(index)"
+                    :class="{'active':task.state === 'pending'}"></i>
+
             </div>
         </div>
+
+        <h2>aggiungi una taske</h2>
+        <div class="inp_cont">
+            <input type="text">
+            <div class="radio_con">
+                <i class="fa-solid fa-check"></i>
+                <input type="radio" name="status">
+            </div>
+            <div class="radio_con">
+                <i class="fa-solid fa-xmark"></i>
+                <input type="radio" name="status">
+            </div>
+            <div class="radio_con">
+                <i class="fa-solid fa-spinner"></i>
+                <input type="radio" name="status">
+            </div>
+        </div>
+        <button>aggiungi</button>
+
     </div>
     <script src="JS/myscript.js"></script>
 </body>
