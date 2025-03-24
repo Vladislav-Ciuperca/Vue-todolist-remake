@@ -13,42 +13,51 @@
 
 <body>
 
+    
+
+
     <script src="https://unpkg.com/vue@v3.5.13 /dist/vue.global.js"></script>
 
     <div id="app">
         <div class="todo_list">
             <div class="title">TODO LIST</div>
-            <div class="stuff" v-for="(task,index) in todoStuff">
-                <span>{{task.task}}</span>
+            <div class="stuff" v-for="(element,index) in todoStuff">
+                <span>{{element.task}}</span>
 
-                <i class=" todo_icons fa-solid fa-check" @click="changeState(index)" :class="{'active':task.state === true}"></i>
+                <i class=" todo_icons fa-solid fa-check" @click="changeState(index)"
+                    :class="{'active':element.state === 'done'}"></i>
 
-                <i class=" todo_icons fa-solid fa-xmark" @click="changeState(index)" :class="{'active':task.state === false}"></i>
+                <i class=" todo_icons fa-solid fa-xmark" @click="changeState(index)"
+                    :class="{'active':element.state === 'not'}"></i>
 
                 <i class=" todo_icons fa-solid fa-spinner" @click="changeState(index)"
-                    :class="{'active':task.state === 'pending'}"></i>
+                    :class="{'active':element.state === 'pending'}"></i>
 
             </div>
         </div>
 
         <h2>aggiungi una taske</h2>
-        <div class="inp_cont">
-            <input type="text">
+          <div class="inp_cont">
+            <!-- inpout text -->
+            <input v-model="task" type="text"></input>
+            <!-- inpout text -->
             <div class="radio_con">
                 <i class="fa-solid fa-check"></i>
-                <input type="radio" name="status">
+                <input type="radio" name="status" v-model="stato" value="done">
             </div>
             <div class="radio_con">
                 <i class="fa-solid fa-xmark"></i>
-                <input type="radio" name="status">
+                <input type="radio" name="status" v-model="stato" value="not">
             </div>
             <div class="radio_con">
                 <i class="fa-solid fa-spinner"></i>
-                <input type="radio" name="status">
+                <input type="radio" name="status" v-model="stato" value="pending">
             </div>
         </div>
-        <button>aggiungi</button>
+        <button @click="addTask(task,stato)">aggiungi</button>
 
+
+        
     </div>
     <script src="JS/myscript.js"></script>
 </body>
